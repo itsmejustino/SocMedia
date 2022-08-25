@@ -1,0 +1,20 @@
+{
+  "name": "socmedia",
+  "version": "1.0.0",
+  "description": "[Description](#description)<br>\r [License](#license)<br>\r [Install-Instructions](#install-Instructions)<br>\r [Usage-Info](#usage-Info)<br>\r [Contribute](#contribute)<br>\r [Questions](#questions)<br>\r [Tests](#tests)<br>",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsmejustino/SocMedia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsmejustino/SocMedia/issues"
+  },
+  "homepage": "https://github.com/itsmejustino/SocMedia#readme"
+}

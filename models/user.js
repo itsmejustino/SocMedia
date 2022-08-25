@@ -1,10 +1,6 @@
+const { Schema, model } = require('mongoose');
 
-const userData = {
-
-
-};
-
-User.
+// User.
 //User Schema
 // username
 
@@ -28,4 +24,4 @@ User.
 
 // Create a virtual called friendCount that retrieves the length of the user's friends array field on query.
 
-module.exports = User
+// module.exports = User
