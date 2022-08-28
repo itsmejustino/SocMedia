@@ -1,41 +1,34 @@
-//thoughts model 
+const { Schema, model } = require("mongoose");
+const  reactionsSchema  = require("./Reaction");
 
-// thoughtText
+// Schema to create User model
+const thoughtsSchema = new Schema({
+  thoughtText: {
+    type: String,
+    required: true,
+    max: 180,
+    min: [1, 'Type your thoughts...']
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: timestamp => dateFormat(timestamp)
+  },
+ username: { 
+    type: String,
+    Required: true,
+},
+  reactions: [reactionsSchema],
+});
 
-// String
-// Required
-// Must be between 1 and 280 characters
-// createdAt
+// Create a virtual property `fullName` that gets and sets the user's full name
+thoughtsSchema.virtual('reactionCount')
+  // Getter
+  .get(function () {
+    return `${this.reactions.length}`;
+  });
 
-// Date
-// Set default value to the current timestamp
-// Use a getter method to format the timestamp on query
-// username (The user that created this thought)
+// Initialize our User model
+const Thoughts = model("thought", thoughtsSchema);
 
-// String
-// Required
-// reactions (These are like replies)
-
-// Array of nested documents created with the reactionSchema
-
-//subcontent
-// Reaction (SCHEMA ONLY)
-
-// reactionId
-
-// Use Mongoose's ObjectId data type
-// Default value is set to a new ObjectId
-// reactionBody
-
-// String
-// Required
-// 280 character maximum
-// username
-
-// String
-// Required
-// createdAt
-
-// Date
-// Set default value to the current timestamp
-// Use a getter method to format the timestamp on query
+module.exports = Thoughts;

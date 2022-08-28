@@ -1,19 +1,5 @@
 const User = require('../models/User');
 
-//async??
-
-// const getUsers = async (req, res) => {
-//   try{ 
-//    const userData = await User.find();
-//     userData => res.json(userData);
-//   }
-//   catch(err)
-//   {
-//     res.json(err)
-//   }
-    
-// }
-
 module.exports = {
   getUsers(req, res) {
     Interaction.find()
