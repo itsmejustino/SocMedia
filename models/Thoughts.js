@@ -6,8 +6,8 @@ const thoughtsSchema = new Schema({
   thoughtText: {
     type: String,
     required: true,
-    max: 180,
-    min: [1, 'Type your thoughts...']
+    maxLength: 180,
+    minLength: [1, 'Type your thoughts...']
   },
   createdAt: {
     type: Date,
@@ -29,6 +29,6 @@ thoughtsSchema.virtual('reactionCount')
   });
 
 // Initialize our User model
-const Thoughts = model("thought", thoughtsSchema);
+const Interaction = model("thought", thoughtsSchema);
 
-module.exports = Thoughts;
+module.exports = Interaction;
