@@ -18,16 +18,16 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     required: "Email needed to move on",
-    validate: [validateEmail, "Please fill use a valid email address"],
-    match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      "Please fill a valid email address",
-    ],
+    // validate: [validateEmail, "Please use a valid email address"],
+    // match: [
+    //   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+    //   "Please use a valid email address",
+    // ],
   },
-  thoughts: [
+  interaction: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Thought",
+      ref: "Interaction",
     },
   ],
   friends: [

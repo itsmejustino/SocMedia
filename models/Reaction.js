@@ -1,6 +1,6 @@
 const { Schema, Types } = require("mongoose");
 
-// Schema to create User model
+// Schema to create reactions made by the user
 const reactionSchema = new Schema(
   {
     reactionId: {
