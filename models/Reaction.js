@@ -18,8 +18,8 @@ const reactionSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now,
-      get: (timestamp) => dateFormat(timestamp),
+      default: new Date(),
+      get: time => time.toUTCString() 
     },
   },
   {

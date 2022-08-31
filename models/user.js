@@ -1,11 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-//validates email address
-const validateEmail = (email) => {
-  let re = new RegExp("/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/");
-  return re.test(email);
-};
-
 // Schema to create User model
 const userSchema = new Schema({
   username: {
@@ -17,12 +11,9 @@ const userSchema = new Schema({
   email: {
     type: String,
     unique: true,
-    required: "Email needed to move on",
-    // validate: [validateEmail, "Please use a valid email address"],
-    // match: [
-    //   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-    //   "Please use a valid email address",
-    // ],
+    lowercase: true,
+    required: 'Email address is required',
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
   },
   interaction: [
     {
@@ -53,7 +44,7 @@ userSchema
   });
 
 // Initialize our User model
-const User = model("user", userSchema);
+const User = model("ser", userSchema);
 
 module.exports = User;
 

@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const reactionSchema = require('./Reaction');
 
+
 // Schema to create User model
 const interactionSchema = new Schema({
   thoughtText: {
@@ -11,8 +12,8 @@ const interactionSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now,
-    get: timestamp => dateFormat(timestamp)
+    default: new Date(),
+    get: time => time.toUTCString() 
   },
  username: { 
     type: String,
@@ -24,6 +25,7 @@ const interactionSchema = new Schema({
   toJSON: {
     getters: true
   },
+  id: false,
 });
 
 // Create a virtual property `fullName` that gets and sets the user's full name
