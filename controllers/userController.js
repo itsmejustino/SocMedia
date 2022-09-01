@@ -67,7 +67,7 @@ module.exports = {
   getOneUserInteraction(req, res) {
     Interaction.findOne({ _id: req.params.InteractionId })
       .then((interaction) =>
-        !user
+        !interaction
           ? res.status(404).json({
               message: "Couldn't find a user Interaction with that ID",
             })
@@ -92,12 +92,12 @@ module.exports = {
       { _id: req.params.userId },
       { $set: req.body }
     )
-      .then((user) =>
-        !user
+      .then((interaction) =>
+        !interaction
           ? res.status(404).json({
               message: "Couldn't find a user Interaction with that ID",
             })
-          : res.json(user)
+          : res.json(interaction)
       )
       .catch((err) => res.status(500).json(err));
   },
@@ -106,12 +106,12 @@ module.exports = {
       { _id: req.params.thoughtId },
       { $addToSet: { reactions: req.body } }
     )
-      .then((user) =>
-        !user
+      .then((interaction) =>
+        !interaction
           ? res.status(404).json({
               message: "Couldn't find a user Interaction with that ID",
             })
-          : res.json(user)
+          : res.json(interaction)
       )
       .catch((err) => res.status(500).json(err));
   },
@@ -121,24 +121,24 @@ module.exports = {
       { _id: req.params.thoughtId },
       { $pull: { reactions: { reactionId: req.params.reactionId } } }
     )
-      .then((user) =>
-        !user
+      .then((interaction) =>
+        !interaction
           ? res.status(404).json({
               message: "Couldn't find a user Interaction with that ID",
             })
-          : res.json(user)
+          : res.json(interaction)
       )
       .catch((err) => res.status(500).json(err));
   },
 
   deleteOneUserInteraction(req, res) {
     Interaction.deleteOne({ _id: req.params.userId })
-      .then((user) =>
-        !user
+      .then((interaction) =>
+        !interaction
           ? res.status(404).json({
               message: "Couldn't find a user Interaction with that ID",
             })
-          : res.json(user)
+          : res.json(interaction)
       )
       .catch((err) => res.status(500).json(err));
   },
