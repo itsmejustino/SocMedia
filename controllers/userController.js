@@ -41,7 +41,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   deleteUser(req, res) {
-    User.fineOneAndDelete({ _id: req.params.userId })
+    User.findOneAndDelete({ _id: req.params.userId })
       .then((user) =>
         !user
           ? res.status(404).json({ message: "There is no user with that ID" })
@@ -65,7 +65,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   getOneUserInteraction(req, res) {
-    Interaction.findOne({ _id: req.params.InteractionId })
+    Interaction.findOne({ _id: req.params.interactionId })
       .then((interaction) =>
         !interaction
           ? res.status(404).json({
@@ -103,7 +103,7 @@ module.exports = {
   },
   addReaction(req, res) {
     Interaction.findOneAndUpdate(
-      { _id: req.params.thoughtId },
+      { _id: req.params.interactionId },
       { $addToSet: { reactions: req.body } }
     )
       .then((interaction) =>
@@ -117,7 +117,7 @@ module.exports = {
   },
   // remove reaction from a thought
   removeReaction(req, res) {
-    Interaction.findOneAndUpdate(
+    Interaction.deleteOne(
       { _id: req.params.thoughtId },
       { $pull: { reactions: { reactionId: req.params.reactionId } } }
     )
@@ -132,7 +132,7 @@ module.exports = {
   },
 
   deleteOneUserInteraction(req, res) {
-    Interaction.deleteOne({ _id: req.params.userId })
+    Interaction.deleteOne({ _id: req.params.interactionId })
       .then((interaction) =>
         !interaction
           ? res.status(404).json({

@@ -17,13 +17,13 @@ router.route("/")
     .post(createUserInteraction);
 //get all interactions by id
 router
-    .route("/:thoughtId")
+    .route("/:interactionId")
     .get(getOneUserInteraction)
     .put(updateOneUserInteraction)
     .delete(deleteOneUserInteraction);
 
-router.route("/:thoughtId/reactions").post(addReaction);
+router.route("/:interactionId/reactions").post(addReaction);
 
-router.route("/:thoughtId/reactions/:reactionId").delete(removeReaction);
+router.route("/:interactionId/reactions/:reactionId").delete(removeReaction);
 
 module.exports = router;
