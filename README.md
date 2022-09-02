@@ -9,7 +9,7 @@
 [Tests](#tests)<br>
 
 ## Description 
-  This app includes a backend database of a social media website. This backend tracks likes, reactions, and comments made between users.
+  This app includes a backend database of a social media website. This backend tracks reactions and comments made between users.
 ## License
   [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ## Install-Instructions 
