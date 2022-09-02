@@ -12,7 +12,7 @@ const {
 } = require("../../controllers/userController");
 
 // Routes for User and Friend addition deletion methods.
-//all user and creat user
+//all user 
 router.route("/")
     .get(getUsers)
     .post(createUser);
