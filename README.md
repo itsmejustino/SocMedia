@@ -16,7 +16,7 @@
   npm i for dependecies.
 ## Usage-Info
   After installing dependencies invoke the program by typing 'node server.js'. Login access will be entered in a .env. This program requires any request tester to test the paths are working correcttly. You can test routes by using this route (http://localhost:3001/{route}/{id})<br><br>
-  Link to demo Video: ```in progress ```
+  Link to demo Video: https://drive.google.com/file/d/1KfmcO8X24oY8-hJ7sX7vw_BbM-RHrGGi/view
 ## Contribute
   If you would like to contribute please send a pull request.
 
