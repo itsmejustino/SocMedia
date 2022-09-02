@@ -28,14 +28,15 @@ const interactionSchema = new Schema({
   id: false,
 });
 
-// Create a virtual property `fullName` that gets and sets the user's full name
+
+//virtual that tracks reaction count
 interactionSchema.virtual('reactionCount')
-  // Getter
+//getter function to get the length of reaction array to get the reaction count
   .get(function () {
     return `${this.reactions.length}`;
   });
 
-// Initialize our User model
+
 const Interaction = model("Interaction", interactionSchema);
 
 module.exports = Interaction;

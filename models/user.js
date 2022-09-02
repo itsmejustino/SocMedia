@@ -13,6 +13,7 @@ const userSchema = new Schema({
     unique: true,
     lowercase: true,
     required: 'Email address is required',
+    //regex expression that validates an email address was
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
   },
   interaction: [
@@ -36,15 +37,13 @@ const userSchema = new Schema({
 });
 
 // Create a virtual property that gets and sets the user's friend count
-userSchema
-  .virtual("friendCount")
-  // Getter
+userSchema.virtual("friendCount")
   .get(function () {
     return `${this.friends.length}`;
   });
 
 // Initialize our User model
-const User = model("ser", userSchema);
+const User = model("User", userSchema);
 
 module.exports = User;
 
